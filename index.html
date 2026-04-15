@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shikhar Bajpai | Portfolio</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            background: #0a0a0a;
+            color: #fff;
+            padding: 28px;
+        }
+
+        /* MAIN WIDTH SAME FOR ALL */
+        .container {
+            max-width: 1400px;
+            margin: auto;
+            display: flex;
+            flex-direction: column;
+            gap: 22px;
+        }
+
+        .glass {
+            background: rgba(255, 255, 255, 0.06);
+            border: 1px solid rgba(255, 255, 255, 0.13);
+            backdrop-filter: blur(18px);
+            border-radius: 22px;
+        }
+
+        /* HERO */
+        .hero {
+            width: 100%;
+            padding: 48px 52px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 40px;
+        }
+
+        .hero-left {
+            flex: 1;
+        }
+
+        .tag {
+            font-size: 11px;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            color: rgba(255, 255, 255, .4);
+            margin-bottom: 18px;
+        }
+
+        h1 {
+            font-size: 58px;
+            line-height: 1.05;
+        }
+
+        .sub {
+            margin-top: 12px;
+            color: rgba(255, 255, 255, .55);
+        }
+
+        .desc {
+            margin-top: 16px;
+            max-width: 520px;
+            line-height: 1.8;
+            color: rgba(255, 255, 255, .45);
+        }
+
+        .buttons {
+            margin-top: 28px;
+            display: flex;
+            gap: 12px;
+        }
+
+        .btn {
+            padding: 14px 24px;
+            border-radius: 14px;
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .btn-primary {
+            background: #fff;
+            color: #000;
+        }
+
+        .btn-secondary {
+            color: #fff;
+            border: 1px solid rgba(255, 255, 255, .16);
+        }
+
+        .hero-image img {
+            width: 210px;
+            height: 230px;
+            object-fit: cover;
+            border-radius: 18px;
+        }
+
+        /* PROJECT SECTION */
+        .projects-section {
+            width: 100%;
+        }
+
+        .section-label {
+            font-size: 11px;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            color: rgba(255, 255, 255, .35);
+            margin-bottom: 16px;
+        }
+
+        /* IMPORTANT PART */
+        .projects-grid {
+            width: 100%;
+            display: grid;
+            grid-template-columns: repeat(4, minmax(0, 1fr));
+            gap: 20px;
+        }
+
+        /* CARD */
+        .project-card {
+            min-width: 0;
+            padding: 24px 20px;
+            min-height: 320px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .card-number {
+            font-size: 11px;
+            letter-spacing: 3px;
+            color: rgba(255, 255, 255, .3);
+            margin-bottom: 12px;
+        }
+
+        .project-card h3 {
+            font-size: 17px;
+            margin-bottom: 12px;
+            line-height: 1.3;
+        }
+
+        .project-card p {
+            font-size: 14px;
+            line-height: 1.7;
+            color: rgba(255, 255, 255, .48);
+        }
+
+        .card-tags {
+            margin-top: 16px;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 7px;
+        }
+
+        .tag-pill {
+            padding: 5px 10px;
+            border-radius: 30px;
+            border: 1px solid rgba(255, 255, 255, .14);
+            font-size: 11px;
+            color: rgba(255, 255, 255, .5);
+        }
+
+        .project-links {
+            display: flex;
+            gap: 8px;
+            flex-wrap: wrap;
+            margin-top: 16px;
+        }
+
+        .project-link {
+            padding: 9px 13px;
+            border-radius: 12px;
+            border: 1px solid rgba(255, 255, 255, .15);
+            text-decoration: none;
+            color: #fff;
+            font-size: 13px;
+        }
+
+        /* CONTACT */
+        .contact {
+            width: 100%;
+            padding: 42px 50px;
+        }
+
+        .contact h2 {
+            font-size: 32px;
+            margin-bottom: 12px;
+        }
+
+        .contact-sub {
+            color: rgba(255, 255, 255, .5);
+            margin-bottom: 22px;
+        }
+
+        /* RESPONSIVE */
+        @media(max-width:1100px) {
+            .projects-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media(max-width:768px) {
+
+            body {
+                padding: 16px;
+            }
+
+            .hero {
+                flex-direction: column;
+                align-items: flex-start;
+                padding: 30px;
+            }
+
+            h1 {
+                font-size: 42px;
+            }
+
+            .hero-image img {
+                width: 150px;
+                height: 170px;
+            }
+
+            .projects-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .contact {
+                padding: 28px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+
+        <!-- HERO -->
+        <section class="glass hero">
+            <div class="hero-left">
+                <p class="tag">Flutter Developer • Portfolio</p>
+                <h1>Shikhar<br>Bajpai</h1>
+                <p class="sub">B.Tech 2027 • KR Mangalam University</p>
+                <p class="desc">
+                    I build modern Flutter apps with clean UI, smooth performance,
+                    and real-world solutions.
+                </p>
+
+                <div class="buttons">
+                    <a href="#projects" class="btn btn-primary">View Projects</a>
+                    <a href="#contact" class="btn btn-secondary">Contact Me</a>
+                </div>
+            </div>
+
+            <div class="hero-image">
+                <img src="pfp.jpeg">
+            </div>
+        </section>
+
+        <!-- PROJECTS -->
+        <section id="projects" class="projects-section">
+
+            <p class="section-label">Projects</p>
+
+            <div class="projects-grid">
+
+                <div class="glass project-card">
+                    <div>
+                        <p class="card-number">01</p>
+                        <h3>Flutter Dice App</h3>
+                        <p>Simple Flutter app showcasing animations, state management and responsive UI design.</p>
+
+                        <div class="card-tags">
+                            <span class="tag-pill">Flutter</span>
+                            <span class="tag-pill">Dart</span>
+                            <span class="tag-pill">Animation</span>
+                        </div>
+                    </div>
+
+                    <div class="project-links">
+                        <a href="https://github.com/shikhar11x/Flutter-Dice" class="project-link">GitHub ↗</a>
+                        <a href="https://flutter-dice-blazestack.vercel.app/" class="project-link">Demo</a>
+                    </div>
+                </div>
+
+                
+                <div class="glass project-card">
+                    <div>
+                        <p class="card-number">02</p>
+                        <h3>Smart Classroom IoT</h3>
+                        <p>IoT based classroom monitoring system with real-time dashboard and analytics.</p>
+
+                        <div class="card-tags">
+                            <span class="tag-pill">IoT</span>
+                            <span class="tag-pill">Dashboard</span>
+                            <span class="tag-pill">Real-time</span>
+                        </div>
+                    </div>
+
+                    <div class="project-links">
+                        <a href="https://github.com/shikhar11x/IoT-Based-Smart-Classroom-Environment-Monitoring-System-6th-SEM"
+                            class="project-link">GitHub ↗</a>
+                        <a href="https://smartclassroomk.vercel.app/" class="project-link">Demo</a>
+                    </div>
+                </div>
+
+                <div class="glass project-card">
+                    <div>
+                        <p class="card-number">03</p>
+                        <h3>Coding Interview Platform</h3>
+                        <p>Industry-ready coding platform with timer, questions and performance tracking.</p>
+
+                        <div class="card-tags">
+                            <span class="tag-pill">Web App</span>
+                            <span class="tag-pill">DSA</span>
+                            <span class="tag-pill">Timer</span>
+                        </div>
+                    </div>
+
+                    <div class="project-links">
+                        <a href="https://github.com/shikhar11x/VirtualCodingInterviewPlatform"
+                            class="project-link">GitHub ↗</a>
+                        <a href="https://codein-blazestack.vercel.app/" class="project-link">Demo</a>
+                    </div>
+                </div>
+
+                <div class="glass project-card">
+                    <div>
+                        <p class="card-number">04</p>
+                        <h3>Delhi Metro Redesign</h3>
+                        <p>UI/UX redesign concept in Figma for modern navigation and commuter experience.</p>
+
+                        <div class="card-tags">
+                            <span class="tag-pill">Figma</span>
+                            <span class="tag-pill">UI/UX</span>
+                            <span class="tag-pill">Design</span>
+                        </div>
+                    </div>
+
+                    <div class="project-links">
+                        <a href="https://www.figma.com/design/RhKKiHmRMf2muWZUPr02Qm/TEAM-BlaZeSTACK?t=RP1i8ui770MlzzaW-1"
+                            class="project-link">Figma ↗</a>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- CONTACT -->
+        <section class="glass contact" id="contact">
+            <h2>Let's Connect</h2>
+            <p class="contact-sub">
+                Open to Flutter internships, freelance work and exciting collaborations.
+            </p>
+
+            <div class="project-links">
+                <a href="https://github.com/shikhar11x" class="project-link">GitHub ↗</a>
+                <a href="https://www.linkedin.com/in/shikharbajpai1/" class="project-link">LinkedIn ↗</a>
+                <a href="mailto:shikhar11x@gmail.com" class="project-link">Email Me</a>
+            </div>
+        </section>
+
+    </div>
+</body>
+
+</html>
