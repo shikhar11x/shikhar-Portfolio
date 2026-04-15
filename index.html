@@ -4,238 +4,521 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Shikhar Bajpai | Portfolio</title>
-
+    <title>Shikhar Bajpai — Portfolio</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
         * {
             margin: 0;
             padding: 0;
-            box-sizing: border-box;
-            font-family: Arial, sans-serif;
+            box-sizing: border-box
         }
 
         body {
-            background: #0a0a0a;
+            font-family: 'Inter', sans-serif;
+            background: #080808;
             color: #fff;
-            padding: 28px;
+            overflow-x: hidden
         }
 
-        /* MAIN WIDTH SAME FOR ALL */
-        .container {
-            max-width: 1400px;
-            margin: auto;
+        canvas#bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 0
+        }
+
+        .wrap {
+            position: relative;
+            z-index: 1;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 24px 20px
+        }
+
+        /* NAV */
+        nav {
             display: flex;
-            flex-direction: column;
-            gap: 22px;
+            justify-content: space-between;
+            align-items: center;
+            padding: 16px 28px;
+            background: rgba(255, 255, 255, 0.04);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 16px;
+            backdrop-filter: blur(20px);
+            margin-bottom: 32px;
+            animation: fadeDown .6s ease both
         }
 
-        .glass {
-            background: rgba(255, 255, 255, 0.06);
-            border: 1px solid rgba(255, 255, 255, 0.13);
-            backdrop-filter: blur(18px);
-            border-radius: 22px;
+        .nav-logo {
+            font-size: 15px;
+            font-weight: 600;
+            letter-spacing: 1px
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 24px
+        }
+
+        .nav-links a {
+            color: rgba(255, 255, 255, .5);
+            text-decoration: none;
+            font-size: 13px;
+            transition: .2s;
+            letter-spacing: .5px
+        }
+
+        .nav-links a:hover {
+            color: #fff
         }
 
         /* HERO */
         .hero {
-            width: 100%;
-            padding: 48px 52px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
+            display: grid;
+            grid-template-columns: 1fr auto;
             gap: 40px;
+            align-items: center;
+            padding: 52px;
+            background: rgba(255, 255, 255, 0.04);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 24px;
+            backdrop-filter: blur(24px);
+            margin-bottom: 24px;
+            position: relative;
+            overflow: hidden;
+            animation: fadeUp .7s ease .1s both
         }
 
-        .hero-left {
-            flex: 1;
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -80px;
+            right: -80px;
+            width: 300px;
+            height: 300px;
+            background: radial-gradient(circle, rgba(255, 255, 255, 0.04) 0%, transparent 70%);
+            pointer-events: none
         }
 
-        .tag {
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 6px 14px;
+            border: 1px solid rgba(255, 255, 255, .1);
+            border-radius: 30px;
             font-size: 11px;
-            letter-spacing: 4px;
+            letter-spacing: 3px;
             text-transform: uppercase;
             color: rgba(255, 255, 255, .4);
-            margin-bottom: 18px;
+            margin-bottom: 20px
         }
 
-        h1 {
-            font-size: 58px;
-            line-height: 1.05;
+        .hero-badge span {
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            background: #4ade80;
+            display: block;
+            animation: pulse 2s infinite
         }
 
-        .sub {
-            margin-top: 12px;
-            color: rgba(255, 255, 255, .55);
+        h1.name {
+            font-size: 62px;
+            font-weight: 700;
+            line-height: 1.0;
+            letter-spacing: -2px;
+            margin-bottom: 12px
         }
 
-        .desc {
-            margin-top: 16px;
-            max-width: 520px;
+        h1.name span {
+            color: rgba(255, 255, 255, .2)
+        }
+
+        .hero-sub {
+            font-size: 14px;
+            color: rgba(255, 255, 255, .4);
+            margin-bottom: 8px;
+            letter-spacing: .5px
+        }
+
+        .hero-desc {
+            font-size: 15px;
             line-height: 1.8;
             color: rgba(255, 255, 255, .45);
+            max-width: 500px;
+            margin-bottom: 32px
         }
 
-        .buttons {
-            margin-top: 28px;
+        .btns {
             display: flex;
             gap: 12px;
+            flex-wrap: wrap
         }
 
         .btn {
-            padding: 14px 24px;
-            border-radius: 14px;
-            text-decoration: none;
+            padding: 13px 26px;
+            border-radius: 12px;
+            font-size: 14px;
             font-weight: 600;
+            cursor: pointer;
+            transition: .2s;
+            text-decoration: none;
+            display: inline-block;
+            letter-spacing: .3px
         }
 
-        .btn-primary {
+        .btn-w {
             background: #fff;
-            color: #000;
+            color: #000
         }
 
-        .btn-secondary {
+        .btn-w:hover {
+            background: #e5e5e5;
+            transform: translateY(-1px)
+        }
+
+        .btn-g {
+            background: transparent;
             color: #fff;
-            border: 1px solid rgba(255, 255, 255, .16);
+            border: 1px solid rgba(255, 255, 255, .16)
         }
 
-        .hero-image img {
-            width: 210px;
-            height: 230px;
+        .btn-g:hover {
+            background: rgba(255, 255, 255, .08);
+            transform: translateY(-1px)
+        }
+
+        /* AVATAR */
+        .avatar-wrap {
+            position: relative;
+            flex-shrink: 0
+        }
+
+        .avatar-wrap img {
+            width: 200px;
+            height: 220px;
             object-fit: cover;
-            border-radius: 18px;
+            border-radius: 20px;
+            border: 1px solid rgba(255, 255, 255, .12);
+            display: block
         }
 
-        /* PROJECT SECTION */
-        .projects-section {
-            width: 100%;
+        .avatar-ring {
+            position: absolute;
+            inset: -8px;
+            border-radius: 28px;
+            border: 1px solid rgba(255, 255, 255, .06);
+            animation: spin 12s linear infinite
         }
 
-        .section-label {
+        .avatar-dot {
+            position: absolute;
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: #fff;
+            top: -4px;
+            left: 50%;
+            transform: translateX(-50%)
+        }
+
+        /* SKILLS BAR */
+        .skills-bar {
+            display: flex;
+            gap: 12px;
+            flex-wrap: wrap;
+            padding: 20px 32px;
+            background: rgba(255, 255, 255, .03);
+            border: 1px solid rgba(255, 255, 255, .07);
+            border-radius: 16px;
+            margin-bottom: 24px;
+            animation: fadeUp .7s ease .2s both
+        }
+
+        .skill-chip {
+            padding: 7px 16px;
+            border-radius: 30px;
+            border: 1px solid rgba(255, 255, 255, .1);
+            font-size: 12px;
+            color: rgba(255, 255, 255, .5);
+            letter-spacing: .5px;
+            transition: .2s;
+            cursor: default
+        }
+
+        .skill-chip:hover {
+            border-color: rgba(255, 255, 255, .3);
+            color: #fff;
+            background: rgba(255, 255, 255, .06)
+        }
+
+        /* SECTION LABEL */
+        .sec-label {
             font-size: 11px;
             letter-spacing: 4px;
             text-transform: uppercase;
-            color: rgba(255, 255, 255, .35);
+            color: rgba(255, 255, 255, .3);
             margin-bottom: 16px;
+            padding-left: 2px
         }
 
-        /* IMPORTANT PART */
-        .projects-grid {
-            width: 100%;
+        /* PROJECTS GRID */
+        .grid {
             display: grid;
-            grid-template-columns: repeat(4, minmax(0, 1fr));
-            gap: 20px;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 16px;
+            margin-bottom: 24px
         }
 
-        /* CARD */
-        .project-card {
-            min-width: 0;
-            padding: 24px 20px;
-            min-height: 320px;
+        .card {
+            background: rgba(255, 255, 255, 0.04);
+            border: 1px solid rgba(255, 255, 255, .09);
+            border-radius: 20px;
+            padding: 24px 22px;
+            min-height: 300px;
             display: flex;
             flex-direction: column;
             justify-content: space-between;
+            position: relative;
+            overflow: hidden;
+            transition: .3s;
+            cursor: default;
+            animation: fadeUp .7s ease both;
+            transform-style: preserve-3d
         }
 
-        .card-number {
+        .card:nth-child(1) {
+            animation-delay: .3s
+        }
+
+        .card:nth-child(2) {
+            animation-delay: .4s
+        }
+
+        .card:nth-child(3) {
+            animation-delay: .5s
+        }
+
+        .card:nth-child(4) {
+            animation-delay: .6s
+        }
+
+        .card::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.03) 0%, transparent 60%);
+            pointer-events: none;
+            opacity: 0;
+            transition: .3s
+        }
+
+        .card:hover {
+            border-color: rgba(255, 255, 255, .2);
+            background: rgba(255, 255, 255, .06)
+        }
+
+        .card:hover::after {
+            opacity: 1
+        }
+
+        .card-num {
             font-size: 11px;
             letter-spacing: 3px;
-            color: rgba(255, 255, 255, .3);
-            margin-bottom: 12px;
+            color: rgba(255, 255, 255, .2);
+            margin-bottom: 14px;
+            font-weight: 500
         }
 
-        .project-card h3 {
-            font-size: 17px;
-            margin-bottom: 12px;
-            line-height: 1.3;
+        .card h3 {
+            font-size: 16px;
+            font-weight: 600;
+            margin-bottom: 10px;
+            line-height: 1.3
         }
 
-        .project-card p {
-            font-size: 14px;
-            line-height: 1.7;
-            color: rgba(255, 255, 255, .48);
+        .card p {
+            font-size: 13px;
+            line-height: 1.75;
+            color: rgba(255, 255, 255, .45)
         }
 
-        .card-tags {
-            margin-top: 16px;
+        .tags {
             display: flex;
             flex-wrap: wrap;
-            gap: 7px;
+            gap: 6px;
+            margin-top: 14px
         }
 
-        .tag-pill {
-            padding: 5px 10px;
+        .tag-p {
+            padding: 4px 10px;
             border-radius: 30px;
-            border: 1px solid rgba(255, 255, 255, .14);
+            border: 1px solid rgba(255, 255, 255, .1);
             font-size: 11px;
-            color: rgba(255, 255, 255, .5);
+            color: rgba(255, 255, 255, .45)
         }
 
-        .project-links {
+        .links {
             display: flex;
             gap: 8px;
             flex-wrap: wrap;
-            margin-top: 16px;
+            margin-top: 16px
         }
 
-        .project-link {
-            padding: 9px 13px;
-            border-radius: 12px;
-            border: 1px solid rgba(255, 255, 255, .15);
+        .lnk {
+            padding: 8px 14px;
+            border-radius: 10px;
+            border: 1px solid rgba(255, 255, 255, .12);
             text-decoration: none;
+            color: rgba(255, 255, 255, .7);
+            font-size: 12px;
+            transition: .2s;
+            font-weight: 500
+        }
+
+        .lnk:hover {
+            background: rgba(255, 255, 255, .1);
             color: #fff;
-            font-size: 13px;
+            border-color: rgba(255, 255, 255, .25)
         }
 
-        /* CONTACT */
-        .contact {
-            width: 100%;
-            padding: 42px 50px;
+        /* BOTTOM ROW */
+        .bottom {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 16px;
+            margin-bottom: 24px
         }
 
-        .contact h2 {
-            font-size: 32px;
-            margin-bottom: 12px;
+        .contact-card,
+        .resume-card {
+            padding: 40px 44px;
+            border-radius: 20px;
+            background: rgba(255, 255, 255, .04);
+            border: 1px solid rgba(255, 255, 255, .09);
+            animation: fadeUp .7s ease .65s both;
+            transition: .3s
         }
 
-        .contact-sub {
-            color: rgba(255, 255, 255, .5);
-            margin-bottom: 22px;
+        .contact-card:hover,
+        .resume-card:hover {
+            border-color: rgba(255, 255, 255, .18)
+        }
+
+        .contact-card h2,
+        .resume-card h2 {
+            font-size: 28px;
+            font-weight: 700;
+            margin-bottom: 10px;
+            letter-spacing: -1px
+        }
+
+        .contact-card p,
+        .resume-card p {
+            font-size: 14px;
+            color: rgba(255, 255, 255, .45);
+            line-height: 1.7;
+            margin-bottom: 24px
+        }
+
+        /* FOOTER */
+        footer {
+            text-align: center;
+            padding: 20px;
+            font-size: 12px;
+            color: rgba(255, 255, 255, .2);
+            letter-spacing: 1px;
+            animation: fadeUp .7s ease .75s both
+        }
+
+        /* KEYFRAMES */
+        @keyframes fadeDown {
+            from {
+                opacity: 0;
+                transform: translateY(-16px)
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0)
+            }
+        }
+
+        @keyframes fadeUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px)
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0)
+            }
+        }
+
+        @keyframes pulse {
+
+            0%,
+            100% {
+                opacity: 1;
+                transform: scale(1)
+            }
+
+            50% {
+                opacity: .5;
+                transform: scale(.8)
+            }
+        }
+
+        @keyframes spin {
+            from {
+                transform: rotate(0deg)
+            }
+
+            to {
+                transform: rotate(360deg)
+            }
         }
 
         /* RESPONSIVE */
-        @media(max-width:1100px) {
-            .projects-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
-        }
-
-        @media(max-width:768px) {
-
-            body {
-                padding: 16px;
+        @media(max-width:900px) {
+            .grid {
+                grid-template-columns: 1fr 1fr
             }
 
             .hero {
-                flex-direction: column;
-                align-items: flex-start;
-                padding: 30px;
+                grid-template-columns: 1fr
             }
 
-            h1 {
-                font-size: 42px;
+            .avatar-wrap {
+                display: none
             }
 
-            .hero-image img {
-                width: 150px;
-                height: 170px;
+            .bottom {
+                grid-template-columns: 1fr
+            }
+        }
+
+        @media(max-width:600px) {
+            .grid {
+                grid-template-columns: 1fr
             }
 
-            .projects-grid {
-                grid-template-columns: 1fr;
+            h1.name {
+                font-size: 44px
             }
 
-            .contact {
-                padding: 28px;
+            .hero {
+                padding: 28px
+            }
+
+            .skills-bar {
+                padding: 16px 20px
             }
         }
     </style>
@@ -243,153 +526,227 @@
 
 <body>
 
-    <div class="container">
+    <canvas id="bg"></canvas>
 
-        <!-- HERO -->
-        <section class="glass hero">
-            <div class="hero-left">
-                <p class="tag">Flutter Developer • Portfolio</p>
-                <h1>Shikhar<br>Bajpai</h1>
-                <p class="sub">B.Tech 2027 • KR Mangalam University</p>
-                <p class="desc">
-                    I build modern Flutter apps with clean UI, smooth performance,
-                    and real-world solutions.
-                </p>
+    <div class="wrap">
 
-                <div class="buttons">
-                    <a href="#projects" class="btn btn-primary">View Projects</a>
-                    <a href="#contact" class="btn btn-secondary">Contact Me</a>
+        <nav>
+            <div class="nav-logo">SB</div>
+            <div class="nav-links">
+                <a href="#">Home</a>
+                <a href="#">Projects</a>
+                <a href="#">Contact</a>
+                <a href="#">Resume</a>
+            </div>
+        </nav>
+
+        <section class="hero">
+            <div>
+                <div class="hero-badge"><span></span>Available for work</div>
+                <h1 class="name">Shikhar<br><span>//</span> Bajpai</h1>
+                <p class="hero-sub">B.Tech 2027 · KR Mangalam University</p>
+                <p class="hero-desc">Building modern Flutter apps with clean UI, smooth performance, and real-world
+                    solutions that actually matter.</p>
+                <div class="btns">
+                    <a href="#projects" class="btn btn-w">View Projects ↓</a>
+                    <a href="mailto:shikhar11x@gmail.com" class="btn btn-g">Contact Me →</a>
                 </div>
             </div>
-
-            <div class="hero-image">
-                <img src="pfp.jpeg">
-            </div>
-        </section>
-
-        <!-- PROJECTS -->
-        <section id="projects" class="projects-section">
-
-            <p class="section-label">Projects</p>
-
-            <div class="projects-grid">
-
-                <div class="glass project-card">
-                    <div>
-                        <p class="card-number">01</p>
-                        <h3>Flutter Dice App</h3>
-                        <p>Simple Flutter app showcasing animations, state management and responsive UI design.</p>
-
-                        <div class="card-tags">
-                            <span class="tag-pill">Flutter</span>
-                            <span class="tag-pill">Dart</span>
-                            <span class="tag-pill">Animation</span>
-                        </div>
-                    </div>
-
-                    <div class="project-links">
-                        <a href="https://github.com/shikhar11x/Flutter-Dice" class="project-link">GitHub ↗</a>
-                        <a href="https://flutter-dice-blazestack.vercel.app/" class="project-link">Demo</a>
-                    </div>
+            <div class="avatar-wrap">
+                <div class="avatar-ring">
+                    <div class="avatar-dot"></div>
                 </div>
-
-
-                <div class="glass project-card">
-                    <div>
-                        <p class="card-number">02</p>
-                        <h3>Smart Classroom IoT</h3>
-                        <p>IoT based classroom monitoring system with real-time dashboard and analytics.</p>
-
-                        <div class="card-tags">
-                            <span class="tag-pill">IoT</span>
-                            <span class="tag-pill">Dashboard</span>
-                            <span class="tag-pill">Real-time</span>
-                        </div>
-                    </div>
-
-                    <div class="project-links">
-                        <a href="https://github.com/shikhar11x/IoT-Based-Smart-Classroom-Environment-Monitoring-System-6th-SEM"
-                            class="project-link">GitHub ↗</a>
-                        <a href="https://smartclassroomk.vercel.app/" class="project-link">Demo</a>
-                    </div>
-                </div>
-
-                <div class="glass project-card">
-                    <div>
-                        <p class="card-number">03</p>
-                        <h3>Coding Interview Platform</h3>
-                        <p>Industry-ready coding platform with timer, questions and performance tracking.</p>
-
-                        <div class="card-tags">
-                            <span class="tag-pill">Web App</span>
-                            <span class="tag-pill">DSA</span>
-                            <span class="tag-pill">Timer</span>
-                        </div>
-                    </div>
-
-                    <div class="project-links">
-                        <a href="https://github.com/shikhar11x/VirtualCodingInterviewPlatform"
-                            class="project-link">GitHub ↗</a>
-                        <a href="https://codein-blazestack.vercel.app/" class="project-link">Demo</a>
-                    </div>
-                </div>
-
-                <div class="glass project-card">
-                    <div>
-                        <p class="card-number">04</p>
-                        <h3>Delhi Metro Redesign</h3>
-                        <p>UI/UX redesign concept in Figma for modern navigation and commuter experience.</p>
-
-                        <div class="card-tags">
-                            <span class="tag-pill">Figma</span>
-                            <span class="tag-pill">UI/UX</span>
-                            <span class="tag-pill">Design</span>
-                        </div>
-                    </div>
-
-                    <div class="project-links">
-                        <a href="https://www.figma.com/design/RhKKiHmRMf2muWZUPr02Qm/TEAM-BlaZeSTACK?t=RP1i8ui770MlzzaW-1"
-                            class="project-link">Figma ↗</a>
-                    </div>
-                </div>
-
+                <!-- Replace pfp.jpeg with your actual photo filename -->
+                <img src="pfp.jpeg" alt="Shikhar Bajpai">
             </div>
         </section>
 
-        <!-- CONTACT -->
-        <section class="glass contact" id="contact">
-            <h2>Let's Connect</h2>
-            <p class="contact-sub">
-                Open to Flutter internships, freelance work and exciting collaborations.
-            </p>
+        <div class="skills-bar">
+            <span class="skill-chip">Flutter</span>
+            <span class="skill-chip">Dart</span>
+            <span class="skill-chip">IoT</span>
+            <span class="skill-chip">Figma</span>
+            <span class="skill-chip">Firebase</span>
+            <span class="skill-chip">REST APIs</span>
+            <span class="skill-chip">UI/UX</span>
+            <span class="skill-chip">State Management</span>
+            <span class="skill-chip">Web Dev</span>
+        </div>
 
-            <div class="project-links">
-                <a href="https://github.com/shikhar11x" class="project-link">GitHub ↗</a>
-                <a href="https://www.linkedin.com/in/shikharbajpai1/" class="project-link">LinkedIn ↗</a>
-                <a href="mailto:shikhar11x@gmail.com" class="project-link">Email Me</a>
+        <p class="sec-label" id="projects">Selected Projects</p>
+        <div class="grid">
+
+            <div class="card">
+                <div>
+                    <p class="card-num">01</p>
+                    <h3>Flutter Dice App</h3>
+                    <p>Animations, state management and responsive UI design in a clean Flutter project.</p>
+                    <div class="tags">
+                        <span class="tag-p">Flutter</span>
+                        <span class="tag-p">Dart</span>
+                        <span class="tag-p">Animation</span>
+                    </div>
+                </div>
+                <div class="links">
+                    <a href="https://github.com/shikhar11x/Flutter-Dice" target="_blank" class="lnk">GitHub ↗</a>
+                    <a href="https://flutter-dice-blazestack.vercel.app/" target="_blank" class="lnk">Live Demo</a>
+                </div>
             </div>
-        </section>
 
-        <section id="resume" class="glass" style="margin-top:5px; padding:40px;">
-            <h2 style="font-size:32px; margin-bottom:20px;">Resume</h2>
-
-            <p style="color:rgba(255,255,255,0.7); margin-bottom:20px;">
-                Download my latest resume to explore my skills, projects, internships, and achievements.
-            </p>
-
-            <div class="project-links">
-                <a class="project-link" href="ShikharBajpai (27-03-2026).pdf" target="_blank">
-                    View Resume
-                </a>
-                <a class="project-link" href="ShikharBajpai (27-03-2026).pdf" download>
-                    Download Resume
-                </a>
+            <div class="card">
+                <div>
+                    <p class="card-num">02</p>
+                    <h3>Smart Classroom IoT</h3>
+                    <p>Real-time classroom monitoring system with live dashboard and environmental analytics.</p>
+                    <div class="tags">
+                        <span class="tag-p">IoT</span>
+                        <span class="tag-p">Dashboard</span>
+                        <span class="tag-p">Real-time</span>
+                    </div>
+                </div>
+                <div class="links">
+                    <a href="https://github.com/shikhar11x/IoT-Based-Smart-Classroom-Environment-Monitoring-System-6th-SEM"
+                        target="_blank" class="lnk">GitHub ↗</a>
+                    <a href="https://smartclassroomk.vercel.app/" target="_blank" class="lnk">Live Demo</a>
+                </div>
             </div>
-        </section>
 
+            <div class="card">
+                <div>
+                    <p class="card-num">03</p>
+                    <h3>Coding Interview Platform</h3>
+                    <p>Industry-ready platform with timed questions, DSA problems and performance tracking.</p>
+                    <div class="tags">
+                        <span class="tag-p">Web App</span>
+                        <span class="tag-p">DSA</span>
+                        <span class="tag-p">Timer</span>
+                    </div>
+                </div>
+                <div class="links">
+                    <a href="https://github.com/shikhar11x/VirtualCodingInterviewPlatform" target="_blank"
+                        class="lnk">GitHub ↗</a>
+                    <a href="https://codein-blazestack.vercel.app/" target="_blank" class="lnk">Live Demo</a>
+                </div>
+            </div>
 
+            <div class="card">
+                <div>
+                    <p class="card-num">04</p>
+                    <h3>Delhi Metro Redesign</h3>
+                    <p>Modern UI/UX concept in Figma — cleaner navigation and premium commuter experience.</p>
+                    <div class="tags">
+                        <span class="tag-p">Figma</span>
+                        <span class="tag-p">UI/UX</span>
+                        <span class="tag-p">Design</span>
+                    </div>
+                </div>
+                <div class="links">
+                    <a href="https://www.figma.com/design/RhKKiHmRMf2muWZUPr02Qm/TEAM-BlaZeSTACK?t=RP1i8ui770MlzzaW-1"
+                        target="_blank" class="lnk">Figma ↗</a>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="bottom">
+            <div class="contact-card">
+                <h2>Let's Connect</h2>
+                <p>Open to Flutter internships, freelance projects, and exciting collabs.</p>
+                <div class="links">
+                    <a href="https://github.com/shikhar11x" target="_blank" class="lnk">GitHub ↗</a>
+                    <a href="https://www.linkedin.com/in/shikharbajpai1/" target="_blank" class="lnk">LinkedIn ↗</a>
+                    <a href="mailto:shikhar11x@gmail.com" class="lnk">Email Me</a>
+                </div>
+            </div>
+            <div class="resume-card">
+                <h2>Resume</h2>
+                <p>My latest resume — skills, projects, internships and achievements all in one place.</p>
+                <div class="links">
+                    <!-- Replace with your actual PDF filename -->
+                    <a href="ShikharBajpai (27-03-2026).pdf" target="_blank" class="lnk">View PDF ↗</a>
+                    <a href="ShikharBajpai (27-03-2026).pdf" download class="lnk">Download ↓</a>
+                </div>
+            </div>
+        </div>
+
+        <footer>© 2026 Shikhar Bajpai · Built with Flutter love &amp; dark energy</footer>
 
     </div>
+
+    <script>
+        // ── Particle canvas background ──
+        const canvas = document.getElementById('bg');
+        const ctx = canvas.getContext('2d');
+        let W, H, particles = [];
+
+        function resize() {
+            W = canvas.width = window.innerWidth;
+            H = canvas.height = window.innerHeight;
+        }
+        resize();
+        window.addEventListener('resize', resize);
+
+        class Particle {
+            constructor() { this.reset(); }
+            reset() {
+                this.x = Math.random() * W;
+                this.y = Math.random() * H;
+                this.r = Math.random() * 1.2 + 0.2;
+                this.vx = (Math.random() - 0.5) * 0.3;
+                this.vy = (Math.random() - 0.5) * 0.3;
+                this.a = Math.random() * 0.4 + 0.05;
+            }
+            update() {
+                this.x += this.vx;
+                this.y += this.vy;
+                if (this.x < 0 || this.x > W || this.y < 0 || this.y > H) this.reset();
+            }
+            draw() {
+                ctx.beginPath();
+                ctx.arc(this.x, this.y, this.r, 0, Math.PI * 2);
+                ctx.fillStyle = `rgba(255,255,255,${this.a})`;
+                ctx.fill();
+            }
+        }
+
+        for (let i = 0; i < 80; i++) particles.push(new Particle());
+
+        function loop() {
+            ctx.clearRect(0, 0, W, H);
+            particles.forEach(p => { p.update(); p.draw(); });
+
+            // draw connecting lines between nearby particles
+            for (let i = 0; i < particles.length; i++) {
+                for (let j = i + 1; j < particles.length; j++) {
+                    const d = Math.hypot(particles[i].x - particles[j].x, particles[i].y - particles[j].y);
+                    if (d < 100) {
+                        ctx.beginPath();
+                        ctx.moveTo(particles[i].x, particles[i].y);
+                        ctx.lineTo(particles[j].x, particles[j].y);
+                        ctx.strokeStyle = `rgba(255,255,255,${0.06 * (1 - d / 100)})`;
+                        ctx.lineWidth = 0.4;
+                        ctx.stroke();
+                    }
+                }
+            }
+            requestAnimationFrame(loop);
+        }
+        loop();
+
+        // ── 3D tilt effect on cards ──
+        document.querySelectorAll('.card').forEach(card => {
+            card.addEventListener('mousemove', e => {
+                const r = card.getBoundingClientRect();
+                const x = (e.clientX - r.left) / r.width - 0.5;
+                const y = (e.clientY - r.top) / r.height - 0.5;
+                card.style.transform = `translateY(-4px) rotateX(${-y * 6}deg) rotateY(${x * 6}deg)`;
+            });
+            card.addEventListener('mouseleave', () => {
+                card.style.transform = 'translateY(0) rotateX(0) rotateY(0)';
+            });
+        });
+    </script>
+
 </body>
 
 </html>
