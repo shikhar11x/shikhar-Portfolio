@@ -12,7 +12,7 @@ This portfolio highlights my work in:
 ---
 
 ## ✨ Live Portfolio
-🔗 **Live Demo:** [View Portfolio](https://your-portfolio-link.vercel.app)
+🔗 **Live Demo:** [View Portfolio](https://shikhar-bajpai-portfolio.vercel.app/)
 
 ---
 
