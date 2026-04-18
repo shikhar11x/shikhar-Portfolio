@@ -39,7 +39,6 @@
             padding: 24px 20px
         }
 
-        /* NAV */
         nav {
             display: flex;
             justify-content: space-between;
@@ -76,7 +75,6 @@
             color: #fff
         }
 
-        /* HERO */
         .hero {
             display: grid;
             grid-template-columns: 1fr auto;
@@ -193,7 +191,6 @@
             transform: translateY(-1px)
         }
 
-        /* AVATAR */
         .avatar-wrap {
             position: relative;
             flex-shrink: 0
@@ -227,7 +224,6 @@
             transform: translateX(-50%)
         }
 
-        /* SKILLS BAR */
         .skills-bar {
             display: flex;
             gap: 12px;
@@ -257,7 +253,6 @@
             background: rgba(255, 255, 255, .06)
         }
 
-        /* SECTION LABEL */
         .sec-label {
             font-size: 11px;
             letter-spacing: 4px;
@@ -267,10 +262,9 @@
             padding-left: 2px
         }
 
-        /* PROJECTS GRID */
         .grid {
             display: grid;
-            grid-template-columns: repeat(4, 1fr);
+            grid-template-columns: repeat(5, 1fr);
             gap: 16px;
             margin-bottom: 24px
         }
@@ -287,7 +281,7 @@
             position: relative;
             overflow: hidden;
             transition: .3s;
-            cursor: default;
+            cursor: pointer;
             animation: fadeUp .7s ease both;
             transform-style: preserve-3d
         }
@@ -306,6 +300,10 @@
 
         .card:nth-child(4) {
             animation-delay: .6s
+        }
+
+        .card:nth-child(5) {
+            animation-delay: .7s
         }
 
         .card::after {
@@ -378,16 +376,20 @@
             color: rgba(255, 255, 255, .7);
             font-size: 12px;
             transition: .2s;
-            font-weight: 500
+            font-weight: 500;
+            pointer-events: none
         }
 
-        .lnk:hover {
-            background: rgba(255, 255, 255, .1);
-            color: #fff;
-            border-color: rgba(255, 255, 255, .25)
+        .card-hint {
+            position: absolute;
+            top: 14px;
+            right: 16px;
+            font-size: 10px;
+            letter-spacing: 1px;
+            color: rgba(255, 255, 255, .18);
+            text-transform: uppercase
         }
 
-        /* BOTTOM ROW */
         .bottom {
             display: grid;
             grid-template-columns: 1fr 1fr;
@@ -426,7 +428,6 @@
             margin-bottom: 24px
         }
 
-        /* FOOTER */
         footer {
             text-align: center;
             padding: 20px;
@@ -436,7 +437,229 @@
             animation: fadeUp .7s ease .75s both
         }
 
-        /* KEYFRAMES */
+        /* ── MODAL ── */
+        .modal-overlay {
+            position: fixed;
+            inset: 0;
+            background: rgba(0, 0, 0, .75);
+            backdrop-filter: blur(12px);
+            z-index: 100;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity .25s ease
+        }
+
+        .modal-overlay.active {
+            opacity: 1;
+            pointer-events: all
+        }
+
+        .modal {
+            background: #111;
+            border: 1px solid rgba(255, 255, 255, .12);
+            border-radius: 24px;
+            width: 100%;
+            max-width: 620px;
+            max-height: 90vh;
+            overflow-y: auto;
+            display: flex;
+            flex-direction: column;
+            transform: translateY(24px) scale(.97);
+            transition: transform .25s ease;
+            scrollbar-width: thin;
+            scrollbar-color: rgba(255, 255, 255, .1) transparent
+        }
+
+        .modal-overlay.active .modal {
+            transform: translateY(0) scale(1)
+        }
+
+        .modal-header {
+            padding: 24px 28px 16px;
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            gap: 12px;
+            position: sticky;
+            top: 0;
+            background: #111;
+            z-index: 2;
+            border-bottom: 1px solid rgba(255, 255, 255, .07)
+        }
+
+        .modal-num {
+            font-size: 10px;
+            letter-spacing: 3px;
+            color: rgba(255, 255, 255, .25);
+            margin-bottom: 6px
+        }
+
+        .modal-title {
+            font-size: 22px;
+            font-weight: 700;
+            letter-spacing: -.5px
+        }
+
+        .modal-close {
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            border: 1px solid rgba(255, 255, 255, .15);
+            background: rgba(255, 255, 255, .05);
+            color: rgba(255, 255, 255, .6);
+            font-size: 16px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            transition: .2s;
+            line-height: 1
+        }
+
+        .modal-close:hover {
+            background: rgba(255, 255, 255, .12);
+            color: #fff;
+            border-color: rgba(255, 255, 255, .3)
+        }
+
+        .modal-body {
+            padding: 20px 28px 28px;
+            display: flex;
+            flex-direction: column;
+            gap: 20px
+        }
+
+        .modal-preview {
+            width: 100%;
+            border-radius: 14px;
+            overflow: hidden;
+            border: 1px solid rgba(255, 255, 255, .08);
+            background: rgba(255, 255, 255, .04);
+            min-height: 180px;
+            display: flex;
+            align-items: center;
+            justify-content: center
+        }
+
+        .modal-preview img {
+            width: auto;
+            max-width: 420px;
+            max-height: 260px;
+            height: auto;
+            display: block;
+            margin: auto;
+            border-radius: 14px;
+            object-fit: contain;
+        }
+
+        .modal-preview-placeholder {
+            width: 100%;
+            height: 180px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            color: rgba(255, 255, 255, .2);
+            font-size: 13px
+        }
+
+        .modal-desc {
+            font-size: 14px;
+            line-height: 1.8;
+            color: rgba(255, 255, 255, .55)
+        }
+
+        .modal-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 7px
+        }
+
+        .modal-tag {
+            padding: 5px 12px;
+            border-radius: 30px;
+            border: 1px solid rgba(255, 255, 255, .1);
+            font-size: 12px;
+            color: rgba(255, 255, 255, .5)
+        }
+
+        .modal-footer {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+            padding-top: 4px;
+            border-top: 1px solid rgba(255, 255, 255, .07)
+        }
+
+        .modal-btn {
+            padding: 11px 20px;
+            border-radius: 12px;
+            border: 1px solid rgba(255, 255, 255, .14);
+            text-decoration: none;
+            color: rgba(255, 255, 255, .8);
+            font-size: 13px;
+            font-weight: 600;
+            transition: .2s;
+            cursor: pointer;
+            background: transparent
+        }
+
+        .modal-btn:hover {
+            background: rgba(255, 255, 255, .08);
+            color: #fff;
+            border-color: rgba(255, 255, 255, .28)
+        }
+
+        .modal-btn.primary {
+            background: #fff;
+            color: #000;
+            border-color: #fff
+        }
+
+        .modal-btn.primary:hover {
+            background: #e5e5e5
+        }
+
+        .slider {
+            position: relative;
+            width: 100%;
+            text-align: center;
+        }
+
+        .slider img {
+            max-width: 420px;
+            max-height: 260px;
+            border-radius: 14px;
+        }
+
+        .nav {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 36px;
+            height: 36px;
+            border: none;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, .08);
+            color: white;
+            cursor: pointer;
+            font-size: 20px;
+        }
+
+        .prev {
+            left: 10px;
+        }
+
+        .next {
+            right: 10px;
+        }
+
         @keyframes fadeDown {
             from {
                 opacity: 0;
@@ -485,7 +708,12 @@
             }
         }
 
-        /* RESPONSIVE */
+        @media(max-width:1100px) {
+            .grid {
+                grid-template-columns: repeat(3, 1fr)
+            }
+        }
+
         @media(max-width:900px) {
             .grid {
                 grid-template-columns: 1fr 1fr
@@ -520,6 +748,14 @@
             .skills-bar {
                 padding: 16px 20px
             }
+
+            .modal-header {
+                padding: 18px 20px 14px
+            }
+
+            .modal-body {
+                padding: 16px 20px 24px
+            }
         }
     </style>
 </head>
@@ -529,7 +765,6 @@
     <canvas id="bg"></canvas>
 
     <div class="wrap">
-
         <nav>
             <div class="nav-logo">SB</div>
             <div class="nav-links">
@@ -556,7 +791,6 @@
                 <div class="avatar-ring">
                     <div class="avatar-dot"></div>
                 </div>
-                <!-- Replace pfp.jpeg with your actual photo filename -->
                 <img src="pfp.jpeg" alt="Shikhar Bajpai">
             </div>
         </section>
@@ -574,13 +808,30 @@
         </div>
 
         <p class="sec-label" id="projects">Selected Projects</p>
+
+        <!--
+    HOW TO CUSTOMIZE EACH MODAL:
+    data-num      → number shown at top of modal
+    data-title    → project name in modal
+    data-desc     → full description paragraph
+    data-tags     → comma-separated tech tags
+    data-preview  → filename of preview image (e.g. "todo-preview.png") — keep blank if none
+    data-links    → JSON array: [{"label":"GitHub ↗","url":"https://...","primary":true}, ...]
+                    set primary:true for the white/filled button
+  -->
+
         <div class="grid">
 
-            <div class="card">
+            <div class="card" data-num="01" data-title="Flutter Todo App"
+                data-desc="A clean and minimal Todo app built with Flutter featuring a dark glass UI, task management with priority levels, and persistent local storage using Hive. Supports adding, editing, deleting tasks with smooth animations throughout."
+                data-tags="Flutter,Dart,Hive,Local Storage,Animation"
+                data-preview="preview/img1.jpeg,preview/img2.jpeg,preview/img3.jpeg"
+                data-links='[{"label":"GitHub ↗","url":"https://github.com/shikhar11x/Flutter-TodoApp","primary":true},{"label":"Download APK","url":"https://github.com/shikhar11x/Flutter-TodoApp/releases","primary":false}]'>
                 <div>
+                    <span class="card-hint">tap to expand</span>
                     <p class="card-num">01</p>
                     <h3>Flutter Todo App</h3>
-                    <p>Clean and minimal Todo app with dark glass UI, task management and local storage using Hive.</p>
+                    <p>Clean minimal Todo app with dark glass UI, task management and local storage using Hive.</p>
                     <div class="tags">
                         <span class="tag-p">Flutter</span>
                         <span class="tag-p">Dart</span>
@@ -588,14 +839,17 @@
                     </div>
                 </div>
                 <div class="links">
-                    <a href="https://github.com/shikhar11x/Flutter-TodoApp" target="_blank" class="lnk">GitHub ↗</a>
-                    <a href="https://github.com/shikhar11x/Flutter-TodoApp/releases" target="_blank"
-                        class="lnk">Download APK</a>
+                    <span class="lnk">GitHub ↗</span>
+                    <span class="lnk">Download APK</span>
                 </div>
             </div>
 
-            <div class="card">
+            <div class="card" data-num="02" data-title="Flutter Dice App"
+                data-desc="A fun Flutter project showcasing smooth dice roll animations, state management with Provider, and a fully responsive UI. Built to explore Flutter's animation system and widget lifecycle in depth."
+                data-tags="Flutter,Dart,Animation,State Management,Provider" data-preview=""
+                data-links='[{"label":"GitHub ↗","url":"https://github.com/shikhar11x/Flutter-Dice","primary":true},{"label":"Live Demo","url":"https://flutter-dice-blazestack.vercel.app/","primary":false}]'>
                 <div>
+                    <span class="card-hint">tap to expand</span>
                     <p class="card-num">02</p>
                     <h3>Flutter Dice App</h3>
                     <p>Animations, state management and responsive UI design in a clean Flutter project.</p>
@@ -606,13 +860,17 @@
                     </div>
                 </div>
                 <div class="links">
-                    <a href="https://github.com/shikhar11x/Flutter-Dice" target="_blank" class="lnk">GitHub ↗</a>
-                    <a href="https://flutter-dice-blazestack.vercel.app/" target="_blank" class="lnk">Live Demo</a>
+                    <span class="lnk">GitHub ↗</span>
+                    <span class="lnk">Live Demo</span>
                 </div>
             </div>
 
-            <div class="card">
+            <div class="card" data-num="03" data-title="Smart Classroom IoT"
+                data-desc="An IoT-based classroom environment monitoring system that tracks temperature, humidity, CO2 levels, and occupancy in real time. Features a live web dashboard with historical charts and alert thresholds for unhealthy conditions."
+                data-tags="IoT,Arduino,Dashboard,Real-time,Charts,Firebase" data-preview=""
+                data-links='[{"label":"GitHub ↗","url":"https://github.com/shikhar11x/IoT-Based-Smart-Classroom-Environment-Monitoring-System-6th-SEM","primary":true},{"label":"Live Demo","url":"https://smartclassroomk.vercel.app/","primary":false}]'>
                 <div>
+                    <span class="card-hint">tap to expand</span>
                     <p class="card-num">03</p>
                     <h3>Smart Classroom IoT</h3>
                     <p>Real-time classroom monitoring system with live dashboard and environmental analytics.</p>
@@ -623,14 +881,17 @@
                     </div>
                 </div>
                 <div class="links">
-                    <a href="https://github.com/shikhar11x/IoT-Based-Smart-Classroom-Environment-Monitoring-System-6th-SEM"
-                        target="_blank" class="lnk">GitHub ↗</a>
-                    <a href="https://smartclassroomk.vercel.app/" target="_blank" class="lnk">Live Demo</a>
+                    <span class="lnk">GitHub ↗</span>
+                    <span class="lnk">Live Demo</span>
                 </div>
             </div>
 
-            <div class="card">
+            <div class="card" data-num="04" data-title="Coding Interview Platform"
+                data-desc="A full web-based coding interview simulator with a DSA question bank, per-question timers, and a performance tracking dashboard. Helps students practice under real interview pressure with instant feedback."
+                data-tags="Web App,JavaScript,DSA,Timer,Performance Tracking" data-preview=""
+                data-links='[{"label":"GitHub ↗","url":"https://github.com/shikhar11x/VirtualCodingInterviewPlatform","primary":true},{"label":"Live Demo","url":"https://codein-blazestack.vercel.app/","primary":false}]'>
                 <div>
+                    <span class="card-hint">tap to expand</span>
                     <p class="card-num">04</p>
                     <h3>Coding Interview Platform</h3>
                     <p>Industry-ready platform with timed questions, DSA problems and performance tracking.</p>
@@ -641,14 +902,17 @@
                     </div>
                 </div>
                 <div class="links">
-                    <a href="https://github.com/shikhar11x/VirtualCodingInterviewPlatform" target="_blank"
-                        class="lnk">GitHub ↗</a>
-                    <a href="https://codein-blazestack.vercel.app/" target="_blank" class="lnk">Live Demo</a>
+                    <span class="lnk">GitHub ↗</span>
+                    <span class="lnk">Live Demo</span>
                 </div>
             </div>
 
-            <div class="card">
+            <div class="card" data-num="05" data-title="Delhi Metro Redesign"
+                data-desc="A complete UI/UX redesign concept for the Delhi Metro app made in Figma. Focused on cleaner navigation flows, a modern visual language, improved accessibility, and a premium commuter experience for daily users."
+                data-tags="Figma,UI/UX,Prototyping,Design System,Mobile" data-preview=""
+                data-links='[{"label":"Open in Figma ↗","url":"https://www.figma.com/design/RhKKiHmRMf2muWZUPr02Qm/TEAM-BlaZeSTACK?t=RP1i8ui770MlzzaW-1","primary":true}]'>
                 <div>
+                    <span class="card-hint">tap to expand</span>
                     <p class="card-num">05</p>
                     <h3>Delhi Metro Redesign</h3>
                     <p>Modern UI/UX concept in Figma — cleaner navigation and premium commuter experience.</p>
@@ -659,8 +923,7 @@
                     </div>
                 </div>
                 <div class="links">
-                    <a href="https://www.figma.com/design/RhKKiHmRMf2muWZUPr02Qm/TEAM-BlaZeSTACK?t=RP1i8ui770MlzzaW-1"
-                        target="_blank" class="lnk">Figma ↗</a>
+                    <span class="lnk">Figma ↗</span>
                 </div>
             </div>
 
@@ -671,79 +934,78 @@
                 <h2>Let's Connect</h2>
                 <p>Open to Flutter internships, freelance projects, and exciting collabs.</p>
                 <div class="links">
-                    <a href="https://github.com/shikhar11x" target="_blank" class="lnk">GitHub ↗</a>
-                    <a href="https://www.linkedin.com/in/shikharbajpai1/" target="_blank" class="lnk">LinkedIn ↗</a>
-                    <a href="mailto:shikhar11x@gmail.com" class="lnk">Email Me</a>
+                    <a href="https://github.com/shikhar11x" target="_blank" class="lnk"
+                        style="pointer-events:all">GitHub ↗</a>
+                    <a href="https://www.linkedin.com/in/shikharbajpai1/" target="_blank" class="lnk"
+                        style="pointer-events:all">LinkedIn ↗</a>
+                    <a href="mailto:shikhar11x@gmail.com" class="lnk" style="pointer-events:all">Email Me</a>
                 </div>
             </div>
             <div class="resume-card" id="resume">
                 <h2>Resume</h2>
                 <p>My latest resume — skills, projects, internships and achievements all in one place.</p>
                 <div class="links">
-                    <!-- Replace with your actual PDF filename -->
-                    <a href="ShikharBajpai (27-03-2026).pdf" target="_blank" class="lnk">View PDF ↗</a>
-                    <a href="ShikharBajpai (27-03-2026).pdf" download class="lnk">Download ↓</a>
+                    <a href="ShikharBajpai (27-03-2026).pdf" target="_blank" class="lnk" style="pointer-events:all">View
+                        PDF ↗</a>
+                    <a href="ShikharBajpai (27-03-2026).pdf" download class="lnk" style="pointer-events:all">Download
+                        ↓</a>
                 </div>
             </div>
         </div>
 
         <footer>© 2026 Shikhar Bajpai · Built with Flutter love &amp; dark energy</footer>
+    </div>
 
+    <!-- MODAL -->
+    <div class="modal-overlay" id="modalOverlay">
+        <div class="modal" id="modal">
+            <div class="modal-header">
+                <div>
+                    <p class="modal-num" id="modalNum"></p>
+                    <h2 class="modal-title" id="modalTitle"></h2>
+                </div>
+                <button class="modal-close" id="modalClose">✕</button>
+            </div>
+            <div class="modal-body">
+                <div class="modal-preview" id="modalPreview"></div>
+                <p class="modal-desc" id="modalDesc"></p>
+                <div class="modal-tags" id="modalTags"></div>
+                <div class="modal-footer" id="modalFooter"></div>
+            </div>
+        </div>
     </div>
 
     <script>
-        // ── Particle canvas background ──
+        // ── Particle canvas ──
         const canvas = document.getElementById('bg');
         const ctx = canvas.getContext('2d');
         let W, H, particles = [];
-
-        function resize() {
-            W = canvas.width = window.innerWidth;
-            H = canvas.height = window.innerHeight;
-        }
+        function resize() { W = canvas.width = window.innerWidth; H = canvas.height = window.innerHeight; }
         resize();
         window.addEventListener('resize', resize);
 
         class Particle {
             constructor() { this.reset(); }
             reset() {
-                this.x = Math.random() * W;
-                this.y = Math.random() * H;
+                this.x = Math.random() * W; this.y = Math.random() * H;
                 this.r = Math.random() * 1.2 + 0.2;
-                this.vx = (Math.random() - 0.5) * 0.3;
-                this.vy = (Math.random() - 0.5) * 0.3;
+                this.vx = (Math.random() - 0.5) * 0.3; this.vy = (Math.random() - 0.5) * 0.3;
                 this.a = Math.random() * 0.4 + 0.05;
             }
-            update() {
-                this.x += this.vx;
-                this.y += this.vy;
-                if (this.x < 0 || this.x > W || this.y < 0 || this.y > H) this.reset();
-            }
-            draw() {
-                ctx.beginPath();
-                ctx.arc(this.x, this.y, this.r, 0, Math.PI * 2);
-                ctx.fillStyle = `rgba(255,255,255,${this.a})`;
-                ctx.fill();
-            }
+            update() { this.x += this.vx; this.y += this.vy; if (this.x < 0 || this.x > W || this.y < 0 || this.y > H) this.reset(); }
+            draw() { ctx.beginPath(); ctx.arc(this.x, this.y, this.r, 0, Math.PI * 2); ctx.fillStyle = `rgba(255,255,255,${this.a})`; ctx.fill(); }
         }
-
         for (let i = 0; i < 80; i++) particles.push(new Particle());
 
         function loop() {
             ctx.clearRect(0, 0, W, H);
             particles.forEach(p => { p.update(); p.draw(); });
-
-            // draw connecting lines between nearby particles
             for (let i = 0; i < particles.length; i++) {
                 for (let j = i + 1; j < particles.length; j++) {
                     const d = Math.hypot(particles[i].x - particles[j].x, particles[i].y - particles[j].y);
                     if (d < 100) {
-                        ctx.beginPath();
-                        ctx.moveTo(particles[i].x, particles[i].y);
-                        ctx.lineTo(particles[j].x, particles[j].y);
-                        ctx.strokeStyle = `rgba(255,255,255,${0.06 * (1 - d / 100)})`;
-                        ctx.lineWidth = 0.4;
-                        ctx.stroke();
+                        ctx.beginPath(); ctx.moveTo(particles[i].x, particles[i].y); ctx.lineTo(particles[j].x, particles[j].y);
+                        ctx.strokeStyle = `rgba(255,255,255,${0.06 * (1 - d / 100)})`; ctx.lineWidth = 0.4; ctx.stroke();
                     }
                 }
             }
@@ -751,7 +1013,7 @@
         }
         loop();
 
-        // ── 3D tilt effect on cards ──
+        // ── 3D tilt ──
         document.querySelectorAll('.card').forEach(card => {
             card.addEventListener('mousemove', e => {
                 const r = card.getBoundingClientRect();
@@ -763,6 +1025,91 @@
                 card.style.transform = 'translateY(0) rotateX(0) rotateY(0)';
             });
         });
+
+        // ── Modal ──
+        const overlay = document.getElementById('modalOverlay');
+        const modalNum = document.getElementById('modalNum');
+        const modalTitle = document.getElementById('modalTitle');
+        const modalPrev = document.getElementById('modalPreview');
+        const modalDesc = document.getElementById('modalDesc');
+        const modalTags = document.getElementById('modalTags');
+        const modalFoot = document.getElementById('modalFooter');
+        const closeBtn = document.getElementById('modalClose');
+
+        function openModal(card) {
+            const num = card.dataset.num || '';
+            const title = card.dataset.title || '';
+            const desc = card.dataset.desc || '';
+            const tags = card.dataset.tags ? card.dataset.tags.split(',') : [];
+            const preview = card.dataset.preview || '';
+            let links = [];
+            try { links = JSON.parse(card.dataset.links || '[]'); } catch (e) { }
+
+            modalNum.textContent = num;
+            modalTitle.textContent = title;
+            modalDesc.textContent = desc;
+
+            if (preview) {
+
+                const images = preview.split(",");
+
+                let slides = `
+ <div class="slider">
+   <button class="nav prev">‹</button>
+   <img id="slideImg" src="${images[0].trim()}">
+   <button class="nav next">›</button>
+ </div>
+ `;
+
+                modalPrev.innerHTML = slides;
+
+                let index = 0;
+                const img = document.getElementById("slideImg");
+
+                document.querySelector(".next").onclick = () => {
+                    index = (index + 1) % images.length;
+                    img.src = images[index].trim();
+                };
+
+                document.querySelector(".prev").onclick = () => {
+                    index = (index - 1 + images.length) % images.length;
+                    img.src = images[index].trim();
+                };
+
+            } else {
+                modalPrev.innerHTML = `
+      <div class="modal-preview-placeholder">
+        <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.2" opacity=".3">
+          <rect x="3" y="3" width="18" height="18" rx="3"/>
+          <circle cx="8.5" cy="8.5" r="1.5"/>
+          <polyline points="21 15 16 10 5 21"/>
+        </svg>
+        <span>Add a screenshot via data-preview="filename.png"</span>
+      </div>`;
+            }
+
+            modalTags.innerHTML = tags.map(t => `<span class="modal-tag">${t.trim()}</span>`).join('');
+
+            modalFoot.innerHTML = links.map(l =>
+                `<a href="${l.url}" target="_blank" rel="noopener" class="modal-btn${l.primary ? ' primary' : ''}">${l.label}</a>`
+            ).join('');
+
+            overlay.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeModal() {
+            overlay.classList.remove('active');
+            document.body.style.overflow = '';
+        }
+
+        document.querySelectorAll('.card').forEach(card => {
+            card.addEventListener('click', () => openModal(card));
+        });
+
+        closeBtn.addEventListener('click', closeModal);
+        overlay.addEventListener('click', e => { if (e.target === overlay) closeModal(); });
+        document.addEventListener('keydown', e => { if (e.key === 'Escape') closeModal(); });
     </script>
 
 </body>
