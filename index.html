@@ -1116,27 +1116,13 @@
         }
 
         @keyframes hpPulse {
-
-            0%,
-            100% {
-                opacity: .6
-            }
-
-            50% {
-                opacity: 1
-            }
+            0%, 100% { opacity: .6 }
+            50% { opacity: 1 }
         }
 
         @keyframes hpFloat {
-
-            0%,
-            100% {
-                transform: translateY(0)
-            }
-
-            50% {
-                transform: translateY(-10px)
-            }
+            0%, 100% { transform: translateY(0) }
+            50% { transform: translateY(-10px) }
         }
 
         .hp-frame {
@@ -1264,62 +1250,26 @@
         }
 
         @keyframes fadeIn {
-            from {
-                opacity: 0
-            }
-
-            to {
-                opacity: 1
-            }
+            from { opacity: 0 }
+            to { opacity: 1 }
         }
 
         @keyframes fadeUp {
-            from {
-                opacity: 0;
-                transform: translateY(20px)
-            }
-
-            to {
-                opacity: 1;
-                transform: translateY(0)
-            }
+            from { opacity: 0; transform: translateY(20px) }
+            to { opacity: 1; transform: translateY(0) }
         }
 
         @keyframes blink {
-
-            0%,
-            100% {
-                opacity: 1
-            }
-
-            50% {
-                opacity: 0
-            }
+            0%, 100% { opacity: 1 }
+            50% { opacity: 0 }
         }
 
         @keyframes glitch {
-
-            0%,
-            90%,
-            100% {
-                transform: translate(0)
-            }
-
-            91% {
-                transform: translate(-2px, 1px)
-            }
-
-            93% {
-                transform: translate(2px, -1px)
-            }
-
-            95% {
-                transform: translate(-1px, 0)
-            }
-
-            97% {
-                transform: translate(1px, 0)
-            }
+            0%, 90%, 100% { transform: translate(0) }
+            91% { transform: translate(-2px, 1px) }
+            93% { transform: translate(2px, -1px) }
+            95% { transform: translate(-1px, 0) }
+            97% { transform: translate(1px, 0) }
         }
 
         .glitch {
@@ -1328,288 +1278,76 @@
 
         /* ── RESPONSIVE ── */
         @media(max-width:1100px) {
-            .proj-grid {
-                grid-template-columns: repeat(3, 1fr)
-            }
+            .proj-grid { grid-template-columns: repeat(3, 1fr) }
         }
 
         /* Tablet */
         @media(max-width:860px) {
-            .wrap {
-                padding: 20px 20px
-            }
-
-            .hero {
-                grid-template-columns: 1fr;
-                gap: 0
-            }
-
-            .hero-right {
-                display: none
-            }
-
-            .proj-grid {
-                grid-template-columns: 1fr 1fr
-            }
-
-            .bottom-grid {
-                grid-template-columns: 1fr
-            }
-
-            h1.name {
-                font-size: 64px;
-                letter-spacing: -3px
-            }
-
-            nav {
-                margin-bottom: 32px
-            }
+            .wrap { padding: 20px 20px }
+            .hero { grid-template-columns: 1fr; gap: 0 }
+            .hero-right { display: none }
+            .proj-grid { grid-template-columns: 1fr 1fr }
+            .bottom-grid { grid-template-columns: 1fr }
+            h1.name { font-size: 64px; letter-spacing: -3px }
+            nav { margin-bottom: 32px }
         }
 
         /* Mobile */
         @media(max-width:600px) {
-
-            /* hide cursor on touch */
-            #cursor,
-            #cursor-ring {
-                display: none
-            }
-
-            body {
-                cursor: auto
-            }
-
-            .wrap {
-                padding: 12px 14px
-            }
-
-            /* nav */
-            nav {
-                padding: 10px 14px;
-                margin-bottom: 20px;
-                top: 10px;
-                border-radius: 8px;
-            }
-
-            .nav-logo {
-                font-size: 12px
-            }
-
-            .nav-links {
-                display: none
-            }
-
-            /* hero */
-            .hero {
-                grid-template-columns: 1fr;
-                gap: 0;
-                margin-bottom: 20px
-            }
-
-            .hero-right {
-                display: none
-            }
-
-            .hero-left {
-                animation: none
-            }
-
-            .hero-eyebrow {
-                font-size: 10px;
-                letter-spacing: 2px;
-                margin-bottom: 14px
-            }
-
-            h1.name {
-                font-size: 46px;
-                letter-spacing: -2px;
-                margin-bottom: 16px
-            }
-
-            .hero-tags {
-                gap: 6px;
-                margin-bottom: 18px
-            }
-
-            .htag {
-                font-size: 10px;
-                padding: 4px 10px
-            }
-
-            .hero-desc {
-                font-size: 13px;
-                line-height: 1.7;
-                margin-bottom: 24px
-            }
-
-            .hbtn {
-                font-size: 12px;
-                padding: 11px 20px
-            }
-
-            .hero-btns {
-                gap: 8px
-            }
-
-            /* stats */
-            .stats-row {
-                grid-template-columns: 1fr 1fr;
-                margin-bottom: 28px;
-                gap: 1px;
-            }
-
-            .stat-item:last-child {
-                grid-column: span 2
-            }
-
-            .stat-val {
-                font-size: 22px
-            }
-
-            .stat-label {
-                font-size: 11px
-            }
-
-            /* skills */
-            .skills-section {
-                margin-bottom: 28px
-            }
-
-            .sk {
-                font-size: 10.5px;
-                padding: 6px 11px
-            }
-
-            /* projects */
-            .projects-section {
-                margin-bottom: 28px
-            }
-
-            .proj-grid {
-                grid-template-columns: 1fr 1fr;
-                gap: 8px;
-            }
-
-            .pcard {
-                border-radius: 12px
-            }
-
-            .pcard-phone-area {
-                padding: 10px 10px 8px
-            }
-
-            .pcard-phone {
-                max-width: 90px
-            }
-
-            .pcard-info {
-                padding: 9px 10px 11px
-            }
-
-            .pcard h3 {
-                font-size: 11px
-            }
-
-            .pcard p {
-                font-size: 10px;
-                -webkit-line-clamp: 2
-            }
-
-            .pcard-chip {
-                font-size: 8px;
-                padding: 2px 5px
-            }
-
-            .pcard-num {
-                font-size: 8px
-            }
-
-            .type-badge {
-                font-size: 7px;
-                padding: 2px 5px
-            }
-
-            .ss-count {
-                font-size: 7px;
-                padding: 2px 5px
-            }
-
-            /* contact / resume */
-            .bottom-grid {
-                grid-template-columns: 1fr;
-                gap: 10px;
-                margin-bottom: 24px
-            }
-
-            .bcard {
-                padding: 22px 20px
-            }
-
-            .bcard h2 {
-                font-size: 20px
-            }
-
-            .bcard p {
-                font-size: 12.5px;
-                margin-bottom: 16px
-            }
-
-            .bl {
-                font-size: 11px;
-                padding: 8px 13px
-            }
-
-            /* footer */
-            footer {
-                padding: 16px;
-                font-size: 10px
-            }
-
-            /* modal */
-            .modal {
-                border-radius: 14px;
-                max-height: 95vh
-            }
-
-            .m-phone {
-                width: 160px
-            }
-
-            .m-info {
-                padding: 14px 16px 18px
-            }
-
-            .m-title {
-                font-size: 17px
-            }
-
-            .m-desc {
-                font-size: 12px
-            }
+            #cursor, #cursor-ring { display: none }
+            body { cursor: auto }
+            .wrap { padding: 12px 14px }
+            nav { padding: 10px 14px; margin-bottom: 20px; top: 10px; border-radius: 8px; }
+            .nav-logo { font-size: 12px }
+            .nav-links { display: none }
+            .hero { grid-template-columns: 1fr; gap: 0; margin-bottom: 20px }
+            .hero-right { display: none }
+            .hero-left { animation: none }
+            .hero-eyebrow { font-size: 10px; letter-spacing: 2px; margin-bottom: 14px }
+            h1.name { font-size: 46px; letter-spacing: -2px; margin-bottom: 16px }
+            .hero-tags { gap: 6px; margin-bottom: 18px }
+            .htag { font-size: 10px; padding: 4px 10px }
+            .hero-desc { font-size: 13px; line-height: 1.7; margin-bottom: 24px }
+            .hbtn { font-size: 12px; padding: 11px 20px }
+            .hero-btns { gap: 8px }
+            .stats-row { grid-template-columns: 1fr 1fr; margin-bottom: 28px; gap: 1px; }
+            .stat-item:last-child { grid-column: span 2 }
+            .stat-val { font-size: 22px }
+            .stat-label { font-size: 11px }
+            .skills-section { margin-bottom: 28px }
+            .sk { font-size: 10.5px; padding: 6px 11px }
+            .projects-section { margin-bottom: 28px }
+            .proj-grid { grid-template-columns: 1fr 1fr; gap: 8px; }
+            .pcard { border-radius: 12px }
+            .pcard-phone-area { padding: 10px 10px 8px }
+            .pcard-phone { max-width: 90px }
+            .pcard-info { padding: 9px 10px 11px }
+            .pcard h3 { font-size: 11px }
+            .pcard p { font-size: 10px; -webkit-line-clamp: 2 }
+            .pcard-chip { font-size: 8px; padding: 2px 5px }
+            .pcard-num { font-size: 8px }
+            .type-badge { font-size: 7px; padding: 2px 5px }
+            .ss-count { font-size: 7px; padding: 2px 5px }
+            .bottom-grid { grid-template-columns: 1fr; gap: 10px; margin-bottom: 24px }
+            .bcard { padding: 22px 20px }
+            .bcard h2 { font-size: 20px }
+            .bcard p { font-size: 12.5px; margin-bottom: 16px }
+            .bl { font-size: 11px; padding: 8px 13px }
+            footer { padding: 16px; font-size: 10px }
+            .modal { border-radius: 14px; max-height: 95vh }
+            .m-phone { width: 160px }
+            .m-info { padding: 14px 16px 18px }
+            .m-title { font-size: 17px }
+            .m-desc { font-size: 12px }
         }
 
         /* Very small phones (iPhone SE etc) */
         @media(max-width:380px) {
-            h1.name {
-                font-size: 38px;
-                letter-spacing: -1.5px
-            }
-
-            .proj-grid {
-                grid-template-columns: 1fr
-            }
-
-            .stats-row {
-                grid-template-columns: 1fr
-            }
-
-            .stat-item:last-child {
-                grid-column: span 1
-            }
-
-            .pcard-phone {
-                max-width: 110px
-            }
+            h1.name { font-size: 38px; letter-spacing: -1.5px }
+            .proj-grid { grid-template-columns: 1fr }
+            .stats-row { grid-template-columns: 1fr }
+            .stat-item:last-child { grid-column: span 1 }
+            .pcard-phone { max-width: 110px }
         }
     </style>
 </head>
@@ -2149,12 +1887,15 @@
         })();
 
         /* ══════════════════════════════════════
-           PROJECT CARD SLIDING (auto-cycle + touch)
+           PROJECT CARD SLIDING
+           - Auto-cycles from page load
+           - Staggered start (each card offset by 400ms)
+           - Hover pauses, mouse-leave resumes
+           - Touch swipe supported
+           - After swipe, auto resumes after 800ms
         ══════════════════════════════════════ */
         (function () {
-            const isTouchDevice = () => window.matchMedia('(hover: none)').matches;
-
-            document.querySelectorAll('.pcard').forEach(card => {
+            document.querySelectorAll('.pcard').forEach((card, cardIndex) => {
                 const slides = card.querySelectorAll('.pcard-slide');
                 const strip = card.querySelector('.pcard-slides');
                 const dotsArea = card.querySelector('.pcard-frame-dots');
@@ -2165,12 +1906,13 @@
                 let cur = 0, timer = null;
                 let touchStartX = 0, touchDiffX = 0, isSwiping = false;
 
+                // Build dot indicators
                 if (dotsArea && total > 1) {
                     dotsArea.innerHTML = Array.from({ length: total }, (_, i) =>
                         `<span class="pcdot${i === 0 ? ' on' : ''}" data-i="${i}"></span>`
                     ).join('');
                     dotsArea.querySelectorAll('.pcdot').forEach(d =>
-                        d.addEventListener('click', e => { e.stopPropagation(); goTo(+d.dataset.i); })
+                        d.addEventListener('click', e => { e.stopPropagation(); goTo(+d.dataset.i); resetAuto(); })
                     );
                 }
 
@@ -2182,7 +1924,9 @@
                     cur = (i + total) % total;
                     strip.style.transition = 'transform .32s cubic-bezier(.4,0,.2,1)';
                     strip.style.transform = `translateX(-${cur * 100}%)`;
-                    dotsArea && dotsArea.querySelectorAll('.pcdot').forEach((d, di) => d.classList.toggle('on', di === cur));
+                    if (dotsArea) {
+                        dotsArea.querySelectorAll('.pcdot').forEach((d, di) => d.classList.toggle('on', di === cur));
+                    }
                     updateCount();
                 }
 
@@ -2191,31 +1935,31 @@
                     stopAuto();
                     timer = setInterval(() => goTo(cur + 1), 2500);
                 }
-                function stopAuto() { clearInterval(timer); timer = null; }
 
-                // ── Desktop: hover pe cycle ──
-                if (!isTouchDevice()) {
-                    card.addEventListener('mouseenter', startAuto);
-                    card.addEventListener('mouseleave', () => { stopAuto(); goTo(0); });
+                function stopAuto() {
+                    clearInterval(timer);
+                    timer = null;
                 }
 
-                // ── Mobile: card screen pe aaye to auto-cycle shuru ──
-                if (isTouchDevice()) {
-                    const obs = new IntersectionObserver(entries => {
-                        entries.forEach(entry => {
-                            if (entry.isIntersecting) startAuto();
-                            else { stopAuto(); goTo(0); }
-                        });
-                    }, { threshold: 0.6 });
-                    obs.observe(card);
+                function resetAuto() {
+                    stopAuto();
+                    startAuto();
                 }
 
-                // ── Touch swipe ──
+                // ✅ Auto-cycle starts on page load, staggered per card
+                setTimeout(() => startAuto(), cardIndex * 400);
+
+                // Desktop hover: pause on enter, resume on leave (no jump to slide 0)
+                card.addEventListener('mouseenter', stopAuto);
+                card.addEventListener('mouseleave', startAuto);
+
+                // Touch swipe support
                 const frameArea = card.querySelector('.pcard-phone-area') || card;
 
                 frameArea.addEventListener('touchstart', e => {
                     touchStartX = e.touches[0].clientX;
-                    touchDiffX = 0; isSwiping = false;
+                    touchDiffX = 0;
+                    isSwiping = false;
                     strip.style.transition = 'none';
                     stopAuto();
                 }, { passive: true });
@@ -2236,8 +1980,9 @@
                         else goTo(cur);
                         e.stopPropagation();
                     }
-                    startAuto(); // swipe ke baad phir se auto-cycle
                     isSwiping = false;
+                    // Resume auto after swipe with small delay
+                    setTimeout(startAuto, 800);
                 }, { passive: false });
 
                 updateCount();
