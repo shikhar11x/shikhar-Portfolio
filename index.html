@@ -337,6 +337,7 @@
 
         .ic-vanguard { background:linear-gradient(135deg,#0d47a1,#1976d2); }
         .ic-task { background:linear-gradient(135deg,#1b5e20,#388e3c); }
+        .ic-lingo { background:linear-gradient(135deg,#1565c0,#42a5f5); }
         .ic-hn { background:linear-gradient(135deg,#bf360c,#f4511e); }
         .ic-todo { background:linear-gradient(135deg,#4a148c,#7b1fa2); }
         .ic-dice { background:linear-gradient(135deg,#006064,#00acc1); }
@@ -344,7 +345,6 @@
         .ic-code { background:linear-gradient(135deg,#1a237e,#303f9f); }
         .ic-metro { background:linear-gradient(135deg,#880e4f,#c2185b); }
 
-        /* ── DOCK ── */
         .hp-dock {
             margin: 4px 8px 10px;
             background: rgba(255,255,255,0.06);
@@ -699,62 +699,71 @@
                                         <div class="hp-clock-date" id="hpClockDate">Wed, 27 May</div>
                                     </div>
                                     <div class="hp-app-grid">
+                                        <!-- idx 0: Vanguard -->
                                         <div class="hp-app" data-proj="0">
                                             <div class="hp-app-icon ic-vanguard">🛡️</div>
                                             <span class="hp-app-name">Vanguard</span>
                                         </div>
+                                        <!-- idx 1: Task Manager -->
                                         <div class="hp-app" data-proj="1">
                                             <div class="hp-app-icon ic-task">✅</div>
                                             <span class="hp-app-name">Task Mgr</span>
                                         </div>
+                                        <!-- idx 2: LingoBreeze (NEW - 3rd position) -->
                                         <div class="hp-app" data-proj="2">
+                                            <div class="hp-app-icon ic-lingo">📚</div>
+                                            <span class="hp-app-name">LingoBreeze</span>
+                                        </div>
+                                        <!-- idx 3: HackerNews -->
+                                        <div class="hp-app" data-proj="3">
                                             <div class="hp-app-icon ic-hn">📰</div>
                                             <span class="hp-app-name">HN Reader</span>
                                         </div>
-                                        <div class="hp-app" data-proj="3">
+                                        <!-- idx 4: Todo -->
+                                        <div class="hp-app" data-proj="4">
                                             <div class="hp-app-icon ic-todo">📝</div>
                                             <span class="hp-app-name">Todo App</span>
                                         </div>
-                                        <div class="hp-app" data-proj="4">
+                                        <!-- idx 5: Dice -->
+                                        <div class="hp-app" data-proj="5">
                                             <div class="hp-app-icon ic-dice">🎲</div>
                                             <span class="hp-app-name">Dice App</span>
                                         </div>
-                                        <div class="hp-app" data-proj="5">
+                                        <!-- idx 6: IoT -->
+                                        <div class="hp-app" data-proj="6">
                                             <div class="hp-app-icon ic-iot">🌡️</div>
                                             <span class="hp-app-name">IoT Dash</span>
                                         </div>
-                                        <div class="hp-app" data-proj="6">
+                                        <!-- idx 7: Coding Platform -->
+                                        <div class="hp-app" data-proj="7">
                                             <div class="hp-app-icon ic-code">💻</div>
                                             <span class="hp-app-name">CodeIn</span>
                                         </div>
-                                        <div class="hp-app" data-proj="7">
+                                        <!-- idx 8: Delhi Metro -->
+                                        <div class="hp-app" data-proj="8">
                                             <div class="hp-app-icon ic-metro">🚇</div>
                                             <span class="hp-app-name">Metro UI</span>
                                         </div>
                                     </div>
 
-                                    <!-- DOCK — fixed icons, smaller size -->
+                                    <!-- DOCK -->
                                     <div class="hp-dock">
-                                        <!-- GitHub -->
                                         <a href="https://github.com/shikhar11x" target="_blank" class="hp-dock-icon di-gh" title="GitHub">
                                             <svg width="13" height="13" viewBox="0 0 24 24" fill="white" aria-hidden="true">
                                                 <path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/>
                                             </svg>
                                         </a>
-                                        <!-- LinkedIn -->
                                         <a href="https://www.linkedin.com/in/shikharbajpai1/" target="_blank" class="hp-dock-icon di-li" title="LinkedIn">
                                             <svg width="12" height="12" viewBox="0 0 24 24" fill="white" aria-hidden="true">
                                                 <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
                                             </svg>
                                         </a>
-                                        <!-- Email -->
                                         <a href="mailto:shikhar11x@gmail.com" class="hp-dock-icon di-em" title="Email">
                                             <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
                                                 <rect x="2" y="4" width="20" height="16" rx="2"/>
                                                 <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/>
                                             </svg>
                                         </a>
-                                        <!-- Resume -->
                                         <a href="ShikharBajpai.pdf" download class="hp-dock-icon di-rv" title="Resume">
                                             <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
                                                 <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
@@ -780,7 +789,7 @@
         <!-- STATS -->
         <div class="stats-row">
             <div class="stat-item">
-                <div class="stat-val">8+</div>
+                <div class="stat-val">9+</div>
                 <div class="stat-label">Projects Shipped</div>
             </div>
             <div class="stat-item">
@@ -798,7 +807,7 @@
             <div class="sec-header">
                 <span class="sec-tag">// tech_stack</span>
                 <div class="sec-line"></div>
-                <span class="sec-num">11 skills</span>
+                <span class="sec-num">12 skills</span>
             </div>
             <div class="skills-grid">
                 <span class="sk flutter">Flutter</span>
@@ -806,12 +815,13 @@
                 <span class="sk firebase">Firebase</span>
                 <span class="sk firebase">Firestore</span>
                 <span class="sk flutter">GetX</span>
+                <span class="sk flutter">Provider</span>
                 <span class="sk other">REST APIs</span>
+                <span class="sk other">Node.js</span>
                 <span class="sk other">State Mgmt</span>
                 <span class="sk iot">IoT · Arduino</span>
                 <span class="sk ui">Figma</span>
                 <span class="sk ui">UI/UX</span>
-                <span class="sk other">Web Dev</span>
             </div>
         </div>
 
@@ -820,7 +830,7 @@
             <div class="sec-header">
                 <span class="sec-tag">// selected_projects</span>
                 <div class="sec-line"></div>
-                <span class="sec-num">08 works</span>
+                <span class="sec-num">09 works</span>
             </div>
 
             <div class="proj-grid" id="projGrid">
@@ -885,8 +895,37 @@
                     </div>
                 </div>
 
-                <!-- 03 HackerNews -->
-                <div class="pcard" data-idx="2" data-num="03" data-type="app" data-title="HackerNews Reader"
+                <!-- 03 LingoBreeze (NEW) -->
+                <div class="pcard" data-idx="2" data-num="03" data-type="app" data-title="LingoBreeze"
+                    data-desc="A vocabulary learning app to save and review words. Add words with meaning & translation, view them in a clean list, pull-to-refresh, modal bottom sheet UI — backed by a Node.js + Express REST API with Firebase Firestore and Clean Architecture."
+                    data-tags="Flutter,Provider,Node.js,Express,Firebase,Firestore,Clean Architecture,REST API"
+                    data-preview="preview/lingo/1.jpg,preview/lingo/2.jpg,preview/lingo/3.jpg,preview/lingo/4.jpg"
+                    data-links='[{"label":"GitHub ↗","url":"https://github.com/shikhar11x/lingbreeze","primary":true}]'>
+                    <div class="pcard-phone-area">
+                        <div class="type-badge app">app</div>
+                        <div class="ss-count">1/4</div>
+                        <div class="pcard-phone">
+                            <div class="pcard-pscreen">
+                                <div class="pcard-slides">
+                                    <img class="pcard-slide" src="preview/lingo/1.jpg" alt="">
+                                    <img class="pcard-slide" src="preview/lingo/2.jpg" alt="">
+                                    <img class="pcard-slide" src="preview/lingo/3.jpg" alt="">
+                                    <img class="pcard-slide" src="preview/lingo/4.jpg" alt="">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="pcard-frame-dots"></div>
+                    </div>
+                    <div class="pcard-info">
+                        <p class="pcard-num">PROJECT_03</p>
+                        <h3>LingoBreeze</h3>
+                        <p>Vocabulary app — save & review words via Node.js + Firestore backend.</p>
+                        <div class="pcard-chips"><span class="pcard-chip">Flutter</span><span class="pcard-chip">Provider</span><span class="pcard-chip">Node.js</span><span class="pcard-chip">Firestore</span></div>
+                    </div>
+                </div>
+
+                <!-- 04 HackerNews -->
+                <div class="pcard" data-idx="3" data-num="04" data-type="app" data-title="HackerNews Reader"
                     data-desc="A Hacker News reader app built with Flutter featuring a terminal-style neon green dark UI with shimmer loading animations."
                     data-tags="Flutter,Dart,REST API,Firebase,Shimmer"
                     data-preview="preview/hackerNewsReader/1.jpeg,preview/hackerNewsReader/2.jpeg"
@@ -905,15 +944,15 @@
                         <div class="pcard-frame-dots"></div>
                     </div>
                     <div class="pcard-info">
-                        <p class="pcard-num">PROJECT_03</p>
+                        <p class="pcard-num">PROJECT_04</p>
                         <h3>HackerNews Reader</h3>
                         <p>Terminal-style HN client with live stories & shimmer.</p>
                         <div class="pcard-chips"><span class="pcard-chip">Flutter</span><span class="pcard-chip">REST API</span></div>
                     </div>
                 </div>
 
-                <!-- 04 Todo -->
-                <div class="pcard" data-idx="3" data-num="04" data-type="app" data-title="Flutter Todo App"
+                <!-- 05 Todo -->
+                <div class="pcard" data-idx="4" data-num="05" data-type="app" data-title="Flutter Todo App"
                     data-desc="Clean minimal Todo app with dark glass UI, priority levels, and persistent local storage using Hive."
                     data-tags="Flutter,Dart,Hive,Local Storage,Animation"
                     data-preview="preview/todomain.jpeg,preview/todo1.jpeg,preview/todo2.jpeg"
@@ -933,15 +972,15 @@
                         <div class="pcard-frame-dots"></div>
                     </div>
                     <div class="pcard-info">
-                        <p class="pcard-num">PROJECT_04</p>
+                        <p class="pcard-num">PROJECT_05</p>
                         <h3>Flutter Todo App</h3>
                         <p>Dark glass UI + priority tasks + Hive storage.</p>
                         <div class="pcard-chips"><span class="pcard-chip">Flutter</span><span class="pcard-chip">Hive</span></div>
                     </div>
                 </div>
 
-                <!-- 05 Dice -->
-                <div class="pcard" data-idx="4" data-num="05" data-type="app" data-title="Flutter Dice App"
+                <!-- 06 Dice -->
+                <div class="pcard" data-idx="5" data-num="06" data-type="app" data-title="Flutter Dice App"
                     data-desc="Flutter dice app with smooth roll animations, Provider state management and fully responsive UI."
                     data-tags="Flutter,Dart,Animation,Provider,Responsive" data-preview="preview/dice.jpeg"
                     data-links='[{"label":"GitHub ↗","url":"https://github.com/shikhar11x/Flutter-Dice","primary":true},{"label":"Live Demo","url":"https://flutter-dice-blazestack.vercel.app/","primary":false}]'>
@@ -958,15 +997,15 @@
                         <div class="pcard-frame-dots"></div>
                     </div>
                     <div class="pcard-info">
-                        <p class="pcard-num">PROJECT_05</p>
+                        <p class="pcard-num">PROJECT_06</p>
                         <h3>Flutter Dice App</h3>
                         <p>Roll animations + Provider state management.</p>
                         <div class="pcard-chips"><span class="pcard-chip">Flutter</span><span class="pcard-chip">Provider</span><span class="pcard-chip">Animation</span></div>
                     </div>
                 </div>
 
-                <!-- 06 IoT -->
-                <div class="pcard" data-idx="5" data-num="06" data-type="iot" data-title="Smart Classroom IoT"
+                <!-- 07 IoT -->
+                <div class="pcard" data-idx="6" data-num="07" data-type="iot" data-title="Smart Classroom IoT"
                     data-desc="IoT classroom environment monitoring — temperature, humidity, CO2, occupancy with live web dashboard and alert thresholds."
                     data-tags="IoT,Arduino,Dashboard,Real-time,Firebase,Charts"
                     data-preview="preview/iot/1.png,preview/iot/2.png"
@@ -990,15 +1029,15 @@
                         <div class="pcard-frame-dots"></div>
                     </div>
                     <div class="pcard-info">
-                        <p class="pcard-num">PROJECT_06</p>
+                        <p class="pcard-num">PROJECT_07</p>
                         <h3>Smart Classroom IoT</h3>
                         <p>Real-time temp, CO2, occupancy monitoring dashboard.</p>
                         <div class="pcard-chips"><span class="pcard-chip">IoT</span><span class="pcard-chip">Arduino</span><span class="pcard-chip">Real-time</span></div>
                     </div>
                 </div>
 
-                <!-- 07 Coding Platform -->
-                <div class="pcard" data-idx="6" data-num="07" data-type="web" data-title="Coding Interview Platform"
+                <!-- 08 Coding Platform -->
+                <div class="pcard" data-idx="7" data-num="08" data-type="web" data-title="Coding Interview Platform"
                     data-desc="Web-based coding interview simulator with DSA question bank, per-question timers, and performance tracking dashboard."
                     data-tags="Web App,JavaScript,DSA,Timer,Performance Tracking"
                     data-preview="preview/codein/codein1.png,preview/codein/codein2.png,preview/codein/codein3.png,preview/codein/codein4.png,preview/codein/codein5.png,preview/codein/codein6.png,preview/codein/codein7.png,preview/codein/codein8.png"
@@ -1028,15 +1067,15 @@
                         <div class="pcard-frame-dots"></div>
                     </div>
                     <div class="pcard-info">
-                        <p class="pcard-num">PROJECT_07</p>
+                        <p class="pcard-num">PROJECT_08</p>
                         <h3>Coding Interview Platform</h3>
                         <p>Timed DSA simulator + performance dashboard.</p>
                         <div class="pcard-chips"><span class="pcard-chip">JavaScript</span><span class="pcard-chip">DSA</span><span class="pcard-chip">Timer</span></div>
                     </div>
                 </div>
 
-                <!-- 08 Delhi Metro -->
-                <div class="pcard" data-idx="7" data-num="08" data-type="design" data-title="Delhi Metro Redesign"
+                <!-- 09 Delhi Metro -->
+                <div class="pcard" data-idx="8" data-num="09" data-type="design" data-title="Delhi Metro Redesign"
                     data-desc="Complete UI/UX redesign concept for the Delhi Metro app in Figma — cleaner navigation, modern visual language, and premium commuter experience."
                     data-tags="Figma,UI/UX,Prototyping,Design System,Mobile"
                     data-preview="preview/metro/1.jpg,preview/metro/2.jpg,preview/metro/3.jpg,preview/metro/4.jpg,preview/metro/5.jpg,preview/metro/6.jpg,preview/metro/7.jpg,preview/metro/8.jpg,preview/metro/9.jpg,preview/metro/10.jpg"
@@ -1063,7 +1102,7 @@
                         <div class="pcard-frame-dots"></div>
                     </div>
                     <div class="pcard-info">
-                        <p class="pcard-num">PROJECT_08</p>
+                        <p class="pcard-num">PROJECT_09</p>
                         <h3>Delhi Metro Redesign</h3>
                         <p>Modern Figma redesign — cleaner navigation & premium UX.</p>
                         <div class="pcard-chips"><span class="pcard-chip">Figma</span><span class="pcard-chip">UI/UX</span><span class="pcard-chip">Design</span></div>
